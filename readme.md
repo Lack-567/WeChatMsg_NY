@@ -50,12 +50,6 @@
 - 💫 流畅的操作体验
 
 ## 📸 效果展示
-模板一：
-![wxid_wr8iujdb57ee21](https://github.com/user-attachments/assets/57103bf2-e5f2-4c5c-bcea-c3837ad50ed8)
-
-模板二：
-![wxid_zo5vpyzrg32922](https://github.com/user-attachments/assets/ce6ee32c-1aa5-4370-8748-b69059a2e8fa)
-
 基本界面样式和结果：
 ![1737540252037](https://github.com/user-attachments/assets/be292a86-f45f-4a25-a75a-15b4745de4ea)
 

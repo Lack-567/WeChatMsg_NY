@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+    <!-- 背景圆圈 -->
+    <circle cx="64" cy="64" r="64" fill="#D4341F"/>
+    
+    <!-- 福字 -->
+    <text x="64" y="80" 
+          font-family="STFangsong, FangSong" 
+          font-size="80" 
+          fill="white" 
+          text-anchor="middle" 
+          dominant-baseline="middle">福</text>
+</svg> 

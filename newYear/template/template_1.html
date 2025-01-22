@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新年祝福</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "PingFang SC", "Helvetica Neue", "SF Pro Display", sans-serif;
+            background: #FDF6F0;
+            padding: 20px;
+        }
+
+        .card-container {
+            width: 85vw;
+            max-width: 500px;
+            aspect-ratio: 3/4;
+            margin: auto;
+            background: rgba(255, 250, 245, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border-radius: 40px;
+            box-shadow: 
+                0 8px 32px rgba(180, 80, 80, 0.08),
+                0 0 0 1px rgba(255, 255, 255, 0.6);
+        }
+
+        .content-wrapper {
+            width: 90%;
+            height: 95%;
+            background: rgba(255, 250, 245, 0.7);
+            border-radius: 30px;
+            padding: 5% 5% 4%;
+            box-shadow: 0 4px 24px rgba(180, 80, 80, 0.05);
+            display: grid;
+            grid-template-rows: auto 40% auto auto auto;
+            gap: 15px;
+            position: relative;
+            border: 1px solid rgba(255, 240, 230, 0.8);
+            z-index: 1;
+        }
+
+        .year-block {
+            text-align: left;
+            position: relative;
+            z-index: 2;
+        }
+
+        .year {
+            font-size: min(14vw, 80px);
+            font-weight: 900;
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+        }
+
+        .subtitle {
+            font-size: min(3vw, 18px);
+            color: #333;
+            margin-top: 2%;
+            letter-spacing: 0.4em;
+        }
+
+        .feature-container {
+            width: 100%;
+            background: linear-gradient(145deg, #f8f8f8, #ffffff);
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 
+                0 4px 24px rgba(180, 80, 80, 0.05),
+                inset 0 0 0 1px rgba(255, 240, 230, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .feature-text {
+            font-size: min(6vw, 36px);
+            font-weight: 300;
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.4;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(78,205,196,0.1), rgba(255,107,107,0.1));
+        }
+
+        .circle-1 {
+            width: 40%;
+            height: 40%;
+            top: 20%;
+            left: 10%;
+        }
+
+        .circle-2 {
+            width: 30%;
+            height: 30%;
+            bottom: 20%;
+            right: 10%;
+        }
+
+        .memory-text {
+            font-size: min(1.8vw, 16px);
+            line-height: 1.8;
+            color: #555;
+            letter-spacing: 0.1em;
+            position: relative;
+            z-index: 2;
+            overflow-y: auto;
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            position: relative;
+            z-index: 2;
+            overflow-y: auto;
+        }
+
+        .tag {
+            font-size: min(1.6vw, 14px);
+            padding: 6px 20px;
+            background: linear-gradient(135deg, rgba(78,205,196,0.1), rgba(255,107,107,0.1));
+            color: #333;
+            border-radius: 25px;
+            letter-spacing: 0.15em;
+            transition: all 0.3s ease;
+        }
+
+        .signature-section {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            z-index: 2;
+        }
+
+        .wishes {
+            font-size: min(1.4vw, 14px);
+            color: #666;
+            line-height: 1.8;
+            letter-spacing: 0.08em;
+            font-weight: 300;
+            max-width: 65%;
+            overflow-y: auto;
+        }
+
+        .signature {
+            font-size: min(2.5vw, 18px);
+            color: #333;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+
+        .geometric-element {
+            position: absolute;
+            background: linear-gradient(135deg, #4ECDC4, #FF6B6B);
+            opacity: 0.1;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .geo-1 {
+            width: 35%;
+            height: 35%;
+            top: -20%;
+            right: -20%;
+        }
+
+        .geo-2 {
+            width: 30%;
+            height: 30%;
+            bottom: -15%;
+            left: -15%;
+        }
+
+        @media screen and (max-width: 768px) {
+            .card-container {
+                width: 90vw;
+            }
+            
+            .content-wrapper {
+                padding: 5%;
+            }
+        }
+
+        /* 自定义滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.1);
+            border-radius: 2px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0,0,0,0.2);
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="content-wrapper">
+            <div class="geometric-element geo-1"></div>
+            <div class="geometric-element geo-2"></div>
+
+            <div class="year-block">
+                <div class="year">{year}</div>
+                <div class="subtitle">{greeting_text}</div>
+            </div>
+
+            <div class="feature-container">
+                <div class="feature-circle circle-1"></div>
+                <div class="feature-circle circle-2"></div>
+                <div class="feature-text">{idioms_text_1}</div>
+                <div class="feature-text">{idioms_text_2}</div>
+            </div>
+
+            <div class="tags-container">
+                <span class="tag">{tag_1}</span>
+                <span class="tag">{tag_2}</span>
+                <span class="tag">{tag_3}</span>
+            </div>
+
+            <div class="signature-section">
+                <div class="wishes">
+                    {wishes_text}
+                </div>
+                <div class="signature">{signature}</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

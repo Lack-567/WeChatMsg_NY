@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新年祝福</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100;300;400;500;700;900&family=ZCOOL+XiaoWei&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Noto Sans SC', sans-serif;
+            background: #FDF6F0;
+            padding: 20px;
+        }
+
+        .card-container {
+            width: 85vw;
+            max-width: 500px;
+            height: calc((85vw * 4/3));
+            max-height: calc(500px * 4/3);
+            margin: auto;
+            background: rgba(255, 250, 245, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border-radius: 40px;
+            box-shadow: 
+                0 8px 32px rgba(180, 80, 80, 0.08),
+                0 0 0 1px rgba(255, 255, 255, 0.6);
+        }
+
+        .content-wrapper {
+            width: 90%;
+            height: 95%;
+            background: rgba(255, 250, 245, 0.7);
+            border-radius: 30px;
+            padding: 5% 5% 4%;
+            box-shadow: 0 4px 24px rgba(180, 80, 80, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            border: 1px solid rgba(255, 240, 230, 0.8);
+            z-index: 1;
+        }
+
+        .year-block {
+            text-align: left;
+            margin-bottom: 2%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .year {
+            font-family: 'ZCOOL QingKe HuangYou', sans-serif;
+            font-size: min(14vw, 140px);
+            background: linear-gradient(135deg, #8B1F1F, #C04848);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 4px 4px 8px rgba(139, 31, 31, 0.15);
+            line-height: 1;
+        }
+
+        .subtitle {
+            font-family: 'ZCOOL XiaoWei', serif;
+            font-size: min(3vw, 30px);
+            letter-spacing: 0.4em;
+            color: #A33B3B;
+            margin-top: 2%;
+            position: relative;
+        }
+
+        .blessing-container {
+            width: 100%;
+            height: 55%;
+            background: rgba(255, 245, 240, 0.5);
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 
+                0 4px 24px rgba(180, 80, 80, 0.05),
+                inset 0 0 0 1px rgba(255, 240, 230, 0.6);
+            margin: 4% 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .blessing-text {
+            font-family: 'ZCOOL XiaoWei', serif;
+            font-size: min(4vw, 40px);
+            color: #8B1F1F;
+            line-height: 2;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .blessing-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(139, 31, 31, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(192, 72, 72, 0.05) 0%, transparent 50%);
+            opacity: 0.8;
+        }
+
+        .blessing-decoration {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border: 2px solid rgba(139, 31, 31, 0.1);
+            transform: rotate(45deg);
+        }
+
+        .decoration-1 { top: 20px; left: 20px; }
+        .decoration-2 { bottom: 20px; right: 20px; }
+
+        .memory-text {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-weight: 300;
+            font-size: min(1.8vw, 18px);
+            line-height: 2.2;
+            color: #854442;
+            letter-spacing: 0.1em;
+            margin: 3% 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 2% 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tag {
+            font-family: 'ZCOOL XiaoWei', serif;
+            font-size: min(1.6vw, 16px);
+            padding: 8px 25px;
+            background: rgba(139, 31, 31, 0.05);
+            color: #8B1F1F;
+            border-radius: 25px;
+            letter-spacing: 0.15em;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 240, 230, 0.8);
+        }
+
+        .tag:hover {
+            transform: translateY(-2px);
+            background: rgba(139, 31, 31, 0.08);
+            box-shadow: 0 4px 12px rgba(139, 31, 31, 0.1);
+        }
+
+        .signature-section {
+            position: relative;
+            margin-top: 2%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            z-index: 2;
+        }
+
+        .wishes {
+            font-size: min(1.4vw, 14px);
+            color: #854442;
+            line-height: 2;
+            letter-spacing: 0.08em;
+            font-weight: 300;
+            font-family: 'Noto Sans SC', sans-serif;
+            max-width: 65%;
+            transform: translateY(-10px);
+        }
+
+        .signature-wrapper {
+            position: relative;
+            transform: rotate(-5deg);
+            margin-right: -10px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .signature {
+            font-family: 'ZCOOL XiaoWei', serif;
+            font-size: min(4vw, 40px);
+            color: transparent;
+            background: linear-gradient(135deg, #8B1F1F, #C04848);
+            -webkit-background-clip: text;
+            background-clip: text;
+            position: relative;
+            padding: 0 15px;
+            transform: translateY(-5px);
+            text-shadow: 2px 2px 4px rgba(139, 31, 31, 0.1);
+        }
+
+        .signature::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            background: linear-gradient(90deg, 
+                rgba(139, 31, 31, 0.1),
+                rgba(192, 72, 72, 0.2));
+            filter: blur(4px);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .signature::after {
+            content: '✧';
+            position: absolute;
+            top: -10px;
+            right: -5px;
+            font-size: 16px;
+            color: #C04848;
+            opacity: 0.6;
+        }
+
+        .geometric-element {
+            position: absolute;
+            background: linear-gradient(135deg, 
+                rgba(139, 31, 31, 0.05), 
+                rgba(192, 72, 72, 0.05));
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border-radius: 50%;
+            border: 1px solid rgba(255, 240, 230, 0.3);
+            z-index: 0;
+        }
+
+        .geo-1 {
+            width: 35%;
+            height: 35%;
+            top: -20%;
+            right: -20%;
+        }
+
+        .geo-2 {
+            width: 30%;
+            height: 30%;
+            bottom: -15%;
+            left: -15%;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-5px) rotate(-5deg); }
+        }
+
+        @media screen and (max-width: 768px) {
+            .card-container {
+                width: 90vw;
+                height: calc((90vw * 4/3));
+            }
+            
+            .content-wrapper {
+                padding: 5%;
+            }
+            
+            .tag {
+                padding: 6px 15px;
+            }
+
+            .signature {
+                font-size: min(5vw, 32px);
+            }
+            
+            .wishes {
+                font-size: min(1.8vw, 12px);
+            }
+
+            .blessing-text {
+                font-size: min(5vw, 32px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="content-wrapper">
+            <div class="geometric-element geo-1"></div>
+            <div class="geometric-element geo-2"></div>
+
+            <div class="year-block">
+                <div class="year">{year}</div>
+                <div class="subtitle">{greeting_text}</div>
+            </div>
+
+            <div class="blessing-container">
+                <div class="blessing-pattern"></div>
+                <div class="blessing-decoration decoration-1"></div>
+                <div class="blessing-decoration decoration-2"></div>
+                <div class="blessing-text">{idioms_text_1}</div>
+                <div class="blessing-text">{idioms_text_2}</div>
+            </div>
+
+            <div class="memory-text">
+                {memory_text}
+            </div>
+
+            <div class="tags-container">
+                <span class="tag">{tag_1}</span>
+                <span class="tag">{tag_2}</span>
+                <span class="tag">{tag_3}</span>
+                <span class="tag">{tag_4}</span>
+            </div>
+
+            <div class="signature-section">
+                <div class="wishes">
+                    {wishes_text}
+                </div>
+                <div class="signature-wrapper">
+                    <div class="signature">{signature}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

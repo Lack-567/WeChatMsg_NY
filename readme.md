@@ -51,7 +51,9 @@
 
 ## 📸 效果展示
 
-[在这里添加一些贺卡效果图]
+![wxid_wr8iujdb57ee21](https://github.com/user-attachments/assets/57103bf2-e5f2-4c5c-bcea-c3837ad50ed8)
+![wxid_zo5vpyzrg32922](https://github.com/user-attachments/assets/ce6ee32c-1aa5-4370-8748-b69059a2e8fa)
+
 
 ## 🚀 使用注意事项
 
